@@ -36,7 +36,7 @@ public class Ejercicio3 {
 				cont++;
 				linea = br.readLine();
 			}
-			
+			//Hola
 			mediaAltura = sumaAltura / cont;
 			mediaEdad = sumaEdad / cont;
 			
