@@ -22,11 +22,11 @@ public class Ejercicio2 {
 			}
 			
 			media = suma / cont;
-			System.out.println("Suma total: " + suma);
+			System.out.println("Suma: " + suma);
 			System.out.println("Media: " + media);
 			
 		} catch (FileNotFoundException e) {
-			System.out.println("No se encuentra el fichero " + e.getMessage());
+			System.out.println(e.getMessage());
 		}
 	}
 }

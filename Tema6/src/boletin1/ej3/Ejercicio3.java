@@ -1,54 +1,46 @@
 package boletin1.ej3;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
 public class Ejercicio3 {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args){
 		
-		double mediaEdad;
-		double mediaAltura;
-		double altura;
-		int edad;
-		String nombre;
-		int sumaEdad = 0;
-		double sumaAltura = 0;
+		String cad;
 		String nombres = "";
+		int sumaEdad = 0;
+		int mediaEdad;
+		double sumaEstatura = 0;
+		double mediaEstatura;
 		int cont = 0;
+
+		String datos[];
 		
 		try (BufferedReader br = new BufferedReader(new FileReader("src\\boletin1\\ej3\\Alumnos.txt"))) {
+			cad = br.readLine();
 			
-			String linea = br.readLine();
-			
-			while (linea != null) {
-				String datos[] = linea.split(" ");
-				nombre = datos[0];
-				edad = Integer.parseInt(datos[1]);
-				altura = Double.parseDouble(datos[2]);
-				
-				nombres += nombre + " ";
-				sumaEdad += edad;
-				sumaAltura += altura;
-				
+			do {
+				datos = cad.split(" ");
+				nombres += datos[0] + " ";
+				sumaEdad += Integer.parseInt(datos[1]);
+				sumaEstatura += Double.parseDouble(datos[2]);
 				cont++;
-				linea = br.readLine();
-			}
-			//Hola
-			mediaAltura = sumaAltura / cont;
-			mediaEdad = sumaEdad / cont;
+				
+				cad = br.readLine();
+			} while (cad != null);
 			
-			System.out.println(nombres);
-			System.out.println("Media edad: " + mediaEdad);
-			System.out.println("Media altura: " + mediaAltura);
-		} catch (FileNotFoundException e) {
-			System.err.println("Error: " + e.getMessage());
+			mediaEdad = sumaEdad / cont;
+			mediaEstatura = sumaEstatura / cont;
+			
+			System.out.println("Nombres: " + nombres);
+			System.out.println("Suma edad: " + sumaEdad + "\nMedia edad: " + mediaEdad);
+			System.out.println("Suma estatura: " + sumaEstatura + "\nMedia estatura: " + mediaEstatura);
+	
 		} catch (IOException e) {
-			System.err.println("Error: " + e.getMessage());
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		
-		
 	}
 }
