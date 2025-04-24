@@ -20,6 +20,7 @@ public class Ejercicio7 {
 		Scanner reader = new Scanner(System.in);
 		
 		do {
+			System.out.println();
 			menu();
 			opc = reader.nextInt();
 			reader.nextLine();
